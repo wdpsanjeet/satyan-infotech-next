@@ -1,0 +1,8 @@
+import type { ReactNode } from "react";
+import { Hero } from "@/components/common/Hero";
+
+type ModelPageProps = { title: ReactNode; heroImage: string; heroAlt: string; firstImage: string; firstImageAlt: string; firstTitle: string; firstText: string; secondImage: string; secondImageAlt: string; secondTitle: string; secondText: string; secondBullets?: string[] };
+
+export function ModelPage(props: ModelPageProps) {
+  return <main role="main"><article><Hero image={props.heroImage} imageAlt={props.heroAlt} title={props.title} /><section className="full-width site-model-section"><div className="s-12 m-12 l-6"><img src={props.firstImage} alt={props.firstImageAlt} loading="lazy" /></div><div className="s-12 m-12 l-6"><div className="padding-2x"><div className="line"><div className="float-left"><i className="icon-sli-drop icon3x text-dark" /></div><div className="margin-left-60 margin-bottom-30"><h3 className="text-size-25 margin-bottom-0">{props.firstTitle}</h3><p className="text-dark preserve-lines">{props.firstText}</p></div></div></div></div></section><section className="full-width site-model-section"><div className="s-12 m-12 l-6"><div className="padding-2x"><div className="line"><div className="float-left"><i className="icon-sli-screen-smartphone icon3x text-dark" /></div><div className="margin-left-60 margin-bottom-30"><h3 className="text-size-25 margin-bottom-0">{props.secondTitle}</h3><p className="preserve-lines">{props.secondText}</p>{props.secondBullets && <ul>{props.secondBullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</div></div></div></div><div className="s-12 m-12 l-6"><img src={props.secondImage} alt={props.secondImageAlt} loading="lazy" /></div></section></article></main>;
+}
